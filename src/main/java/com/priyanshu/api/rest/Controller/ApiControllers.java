@@ -22,7 +22,17 @@ public class ApiControllers {
 
 	@GetMapping(value = "/")
 	public String getPage() {
-		return "Welcome to my API, this API is completely cloud based. There will be a front end soon!";
+		return "Welcome to my API, this API is completely cloud based.\n\n"
+				+ "Use the following HTTP requests to work with the API:\n"
+				+ "GET /users: will return all the users currently in the system.\n\n"
+				+ "POST /save: will save the user object \n"
+				+ "{\"firstName\": String, \"lastName\": String, \"age\": int, \"occupation\": String}\n"
+				+ "into the sytem and will automatically assign it a \"id\": int.\n"
+				+ "This request will only work if the above object is provided!\n\n"
+				+ "PUT /update/{id}: will update the user at the given \"id\" with a new user\n"
+				+ "{\"firstName\": String, \"lastName\": String, \"age\": int, \"occupation\": String}\n"
+				+ "This request will only work if the above object is provided!\n\n"
+				+ "DELETE /delete/{id}: will delete the user present at the provided \"id\" if it exists.";
 	}
 	
 	@GetMapping(value = "/users")
